@@ -1,55 +1,9 @@
-'''
-Project B
-
-Objective:
-
-Build a simple command-line To-Do list application where users can add, remove, view, and mark tasks completed.
-
-Features:
-
-View tasks: Users should be able to see a list of their tasks, each with a status indicating whether it is pending or completed.
-
-Add Tasks: Users should be able to add new tasks to their list.
-
-Remove tasks: Users should have the option to remove tasks from the list
-
-Mark Tasks as Completed
-
-Hints:
-
-Think about what data structure will be most useful in this application to hold your tasks.
-Implement functions for each feature: viewing tasks, adding new tasks, removing tasks, and marking tasks as completed.
-Create a loop that keeps the program running and displays a menu of options for the user to choose from (view, add, remove, complete a task, and exit)
-
-Improvements:
-
-Implement error handling to manage user inputs
-Allow for task editing
-Sort tasks by status or creation date
-Implement categories or tags for tasks
-Focus on getting the basic functionality working before moving to more advanced features. The takeaway from this project is to practice manipulating 
-lists and dictionaries, working with loops, and handling user input in Python
-
-'''
-
-# Task
-#    Date Entered
-#    Date Completed
-#    Due Date
-#    Categories
-#    Tags
-
-#    completed ind
-#    task name
-
-# Methods
-#    view all tasks
-#    Add Tasks
-#    Remove tasks
-
-#  maintain state of the task list - write to csv or text???
+# My To Do List
 import add_item
 import complete_item
+import remove_item
+import print_menu
+import print_todo_list
 
 def todolist(operation:str, taskname:str) -> dict: 
     try:
@@ -61,15 +15,10 @@ def todolist(operation:str, taskname:str) -> dict:
             print(complete_item.complete_item(taskname,tasklist))
         # remove a task
         elif operation == 'R':
-            if taskname in tasklist:
-                del tasklist[taskname]
-            else:
-                print("Task doesn't exists in your to do list.")
-      
+            print(remove_item.remove_item(taskname, tasklist))
         # view all tasks  
         #elif operation == 'V':
         return tasklist
-
     except:
        raise ValueError
 
@@ -80,17 +29,8 @@ tasklist={'Weed garden': {'status': 'complete', 'date_entered': '2024-07-15 00:0
           , 'Walk dog': {'status': 'incomplete', 'date_entered': '2024-05-15 00:00:00.000000'}  \
           , 'Feed cat': {'status': 'incomplete', 'date_entered': '2024-04-15 00:00:00.000000'}  \
           , 'Read paper': {'status': 'incomplete', 'date_entered': '2024-06-15 00:00:00.000000'}}
-    
-# print introduction 
-print("Welcome to the Edgar/Jim To Do List\n")
-# print("Here is your current to do list:")
-# print_todo_list.print_todo_list(tasklist)
-print("\nWhat would you like to do?")
-print("    V to view tasks")
-print("    A to add a new task")
-print("    R to remove a task")
-print("    C to mark a task complete")
-print("    X to end the program")
+
+print_menu.print_menu()
 
 while True:
     
@@ -119,20 +59,6 @@ while True:
 
     todolist(operation,task_name)
 
-    #print(tasklist)
-# Display tasklist
-     # loop through tasks and display in a list
-    print (f"\tItem List\n")
-
-    for key in tasklist.keys():
-    
-        if tasklist[key].get('status') == 'incomplete':
-            box="\U000025FB"
-        else:
-            box="\U00002705"
-        
-        mydate=str(tasklist[key].get('date_entered'))
-
-        print(f"{box} \t {key} \t {mydate[5:7]}-{mydate[8:10]}-{mydate[0:4]}")
+    print_todo_list.print_todo_list(tasklist)
 
 ### End of Program ###
