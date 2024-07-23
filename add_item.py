@@ -1,3 +1,5 @@
+# add an item to the to do list
+
 import datetime
 
 def add_item(item,tasklist):
@@ -7,3 +9,5 @@ def add_item(item,tasklist):
         return "Item successfully added."
     else:
         return "Task already exists in your to do list."
+    
+### End of Module ###

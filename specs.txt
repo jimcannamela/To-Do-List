@@ -1,0 +1,48 @@
+'''
+Project B
+
+Objective:
+
+Build a simple command-line To-Do list application where users can add, remove, view, and mark tasks completed.
+
+Features:
+
+View tasks: Users should be able to see a list of their tasks, each with a status indicating whether it is pending or completed.
+
+Add Tasks: Users should be able to add new tasks to their list.
+
+Remove tasks: Users should have the option to remove tasks from the list
+
+Mark Tasks as Completed
+
+Hints:
+
+Think about what data structure will be most useful in this application to hold your tasks.
+Implement functions for each feature: viewing tasks, adding new tasks, removing tasks, and marking tasks as completed.
+Create a loop that keeps the program running and displays a menu of options for the user to choose from (view, add, remove, complete a task, and exit)
+
+Improvements:
+
+Implement error handling to manage user inputs
+Allow for task editing
+Sort tasks by status or creation date
+Implement categories or tags for tasks
+Focus on getting the basic functionality working before moving to more advanced features. The takeaway from this project is to practice manipulating 
+lists and dictionaries, working with loops, and handling user input in Python
+
+'''
+
+# Task
+#    Date Entered
+#    Date Completed
+#    Due Date
+#    Categories
+#    Tags
+
+#    completed ind
+#    task name
+
+# Methods
+#    view all tasks
+#    Add Tasks
+#    Remove tasks

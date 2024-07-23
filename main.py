@@ -49,6 +49,7 @@ lists and dictionaries, working with loops, and handling user input in Python
 
 #  maintain state of the task list - write to csv or text???
 import add_item
+import complete_item
 
 def todolist(operation:str, taskname:str) -> dict: 
     try:
@@ -57,11 +58,7 @@ def todolist(operation:str, taskname:str) -> dict:
             print(add_item.add_item(taskname,tasklist))
         # update a task to completed
         elif operation == 'C':
-            if taskname in tasklist:
-#                tasklist[taskname]={'status':'complete'} #  ERROR HERE, the date is lost at this point
-                tasklist[taskname]['status']='complete'  # <--- try this
-            else:
-                print("Task doesn't exists in your to do list.")
+            print(complete_item.complete_item(taskname,tasklist))
         # remove a task
         elif operation == 'R':
             if taskname in tasklist:
