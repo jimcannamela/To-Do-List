@@ -13,6 +13,9 @@
 *.vsix
 
 ### PYTHON IGNORE ###
+
+# my environment
+my_todo_env/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
