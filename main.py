@@ -48,17 +48,13 @@ lists and dictionaries, working with loops, and handling user input in Python
 #    Remove tasks
 
 #  maintain state of the task list - write to csv or text???
-import datetime
+import add_item
 
 def todolist(operation:str, taskname:str) -> dict: 
     try:
         # add a new task
         if operation == 'A':
-            # handle duplicate tasks
-            if taskname not in tasklist:
-                tasklist[taskname]={'status':'incomplete', 'date_entered': datetime.datetime.today() }
-            else:
-                print("Task already exists in your to do list.")
+            print(add_item.add_item(taskname,tasklist))
         # update a task to completed
         elif operation == 'C':
             if taskname in tasklist:
@@ -80,27 +76,29 @@ def todolist(operation:str, taskname:str) -> dict:
     except:
        raise ValueError
 
-    
-print("Welcome to the Edgar/Jim To Do List")
-
-print("What would you like to do?")
-print("    V to view tasks")
-print("    A to add a new task")
-print("    R to remove a task")
-print("    C to mark a task complete")
-print("    X to end the program")
-
+# Initialize Variables
 operation = ' '
 # tasklist = {}
 tasklist={'Weed garden': {'status': 'complete', 'date_entered': '2024-07-15 00:00:00.000000'}   \
           , 'Walk dog': {'status': 'incomplete', 'date_entered': '2024-05-15 00:00:00.000000'}  \
           , 'Feed cat': {'status': 'incomplete', 'date_entered': '2024-04-15 00:00:00.000000'}  \
           , 'Read paper': {'status': 'incomplete', 'date_entered': '2024-06-15 00:00:00.000000'}}
+    
+# print introduction 
+print("Welcome to the Edgar/Jim To Do List\n")
+# print("Here is your current to do list:")
+# print_todo_list.print_todo_list(tasklist)
+print("\nWhat would you like to do?")
+print("    V to view tasks")
+print("    A to add a new task")
+print("    R to remove a task")
+print("    C to mark a task complete")
+print("    X to end the program")
 
 while True:
     
     while True:        
-        operation = input("Please select your action: ").upper()
+        operation = input("Please select your action: 'A'dd 'C'omplete 'R'emove 'V'iew e'X'it => " ).upper()
         if operation in ('A', 'C', 'R', 'V', 'X'):
             break
         else:            
@@ -125,6 +123,7 @@ while True:
     todolist(operation,task_name)
 
     #print(tasklist)
+# Display tasklist
      # loop through tasks and display in a list
     print (f"\tItem List\n")
 
@@ -138,3 +137,5 @@ while True:
         mydate=str(tasklist[key].get('date_entered'))
 
         print(f"{box} \t {key} \t {mydate[5:7]}-{mydate[8:10]}-{mydate[0:4]}")
+
+### End of Program ###
