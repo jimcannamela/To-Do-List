@@ -60,5 +60,6 @@ while True:
     todolist(operation,task_name)
 
     print_todo_list.print_todo_list(tasklist)
+    print_menu.print_menu()
 
 ### End of Program ###
