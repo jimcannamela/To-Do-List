@@ -15,7 +15,7 @@
 ### PYTHON IGNORE ###
 
 # my environment
-my_todo_env/
+myenv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
